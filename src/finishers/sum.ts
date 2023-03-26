@@ -1,8 +1,6 @@
 import { Finisher } from '../types'
-import { aggregate } from './aggregate'
+import { sumOf } from './sumOf'
 
 export function sum(): Finisher<number, number> {
-  return function (source) {
-    return aggregate<number, number>(0, (sum, item) => sum + item)(source)
-  }
+  return sumOf(x => x)
 }
