@@ -1,15 +1,13 @@
 import { Finisher } from '../types'
+import { lastOrNull } from './lastOrNull'
 
-export function last<T>(
-  predicate?: (item: T) => boolean
-): Finisher<T, T | null> {
+export function last<T>(predicate?: (item: T) => boolean): Finisher<T, T> {
   return function (source) {
-    let last: T | null = null
-    for (const element of source) {
-      if (!predicate || predicate(element)) {
-        last = element
-      }
+    const result = lastOrNull(predicate)(source)
+    if (result === null) {
+      throw new Error('The sequence contains no matching element.')
     }
-    return last
+
+    return result
   }
 }
