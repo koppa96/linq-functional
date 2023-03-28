@@ -9,6 +9,6 @@ export function maxOf<T, R>(
   comparator: Comparator<R> = defaultComparator
 ): Finisher<T, R | null> {
   return function (source) {
-    return query(source, select(selector), max(comparator))
+    return query(from(source), select(selector), max(comparator))
   }
 }

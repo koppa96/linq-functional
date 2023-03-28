@@ -16,7 +16,7 @@ const result = query(
   where(item => item > 3)
 )
 
-const res2 = query(result, max())
-const fst = query(result, first())
+const res2 = query(from(result), max())
+const fst = query(from(result), first())
 
 console.log({ res2, fst })

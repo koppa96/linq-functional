@@ -12,17 +12,19 @@ export function selectMany<T>(
   resultSelector?: (sourceItem: unknown, collectionItem: unknown) => unknown
 ): Operator<T, unknown> {
   return function (source) {
-    return function* () {
-      for (const element of source()) {
-        const collection = collectionSelector(element)
-        for (const collectionElement of collection) {
-          if (resultSelector) {
-            yield resultSelector(element, collectionElement)
-          } else {
-            yield collectionElement
+    return {
+      *[Symbol.iterator]() {
+        for (const element of source) {
+          const collection = collectionSelector(element)
+          for (const collectionElement of collection) {
+            if (resultSelector) {
+              yield resultSelector(element, collectionElement)
+            } else {
+              yield collectionElement
+            }
           }
         }
-      }
+      },
     }
   }
 }

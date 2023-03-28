@@ -7,7 +7,7 @@ export function averageOf<T>(
     let sum = 0
     let count = 0
 
-    for (const element of source()) {
+    for (const element of source) {
       sum += selector(element)
       count++
     }

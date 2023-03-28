@@ -7,7 +7,7 @@ export function elementAt<T>(index: number): Finisher<T, T> {
     }
 
     let i = 0
-    for (const element of source()) {
+    for (const element of source) {
       if (i === index) {
         return element
       }

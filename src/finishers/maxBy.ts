@@ -8,7 +8,7 @@ export function maxBy<T, R>(
     let max: T | null = null
     let maxValue: R | null = null
 
-    for (const element of source()) {
+    for (const element of source) {
       const result = selector(element)
       if (maxValue === null || comparator(maxValue, result) < 0) {
         max = element

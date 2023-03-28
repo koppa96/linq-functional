@@ -5,7 +5,7 @@ export function singleOrNull<T>(
 ): Finisher<T, T | null> {
   return function (source) {
     let result: T | null = null
-    for (const element of source()) {
+    for (const element of source) {
       if (!predicate || predicate(element)) {
         if (result === null) {
           result = element
