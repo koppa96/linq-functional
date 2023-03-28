@@ -8,7 +8,7 @@ export function minBy<T, R>(
     let min: T | null = null
     let minValue: R | null = null
 
-    for (const element of source) {
+    for (const element of source()) {
       const result = selector(element)
       if (minValue === null || comparator(minValue, result) > 0) {
         min = element

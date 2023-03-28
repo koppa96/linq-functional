@@ -5,7 +5,7 @@ export function sequenceEquals<T>(
   equalityCheck: EqualityCheck<T> = defaultEqualityCheck
 ): Finisher<T, boolean> {
   return function (source) {
-    const iterator1 = source[Symbol.iterator]()
+    const iterator1 = source()[Symbol.iterator]()
     const iterator2 = other[Symbol.iterator]()
 
     while (true) {

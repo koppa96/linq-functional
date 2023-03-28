@@ -5,7 +5,7 @@ export function count<T>(
 ): Finisher<T, number> {
   return function (source) {
     let result = 0
-    for (const item of source) {
+    for (const item of source()) {
       if (!predicate || predicate(item)) {
         result++
       }

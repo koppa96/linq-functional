@@ -11,7 +11,7 @@ export function toMap<T, K>(
 ): Finisher<T, Map<K, unknown>> {
   return function (source) {
     const map = new Map<K, unknown>()
-    for (const element of source) {
+    for (const element of source()) {
       const key = keySelector(element)
       const value = valueSelector ? valueSelector(element) : element
 

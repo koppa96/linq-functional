@@ -9,6 +9,6 @@ export function minOf<T, R>(
   comparator: Comparator<R> = defaultComparator
 ): Finisher<T, R | null> {
   return function (source) {
-    return query(from(source), select(selector), min(comparator))
+    return query(source, select(selector), min(comparator))
   }
 }
