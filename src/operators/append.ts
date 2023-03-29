@@ -1,15 +1,19 @@
 import { Operator } from '../types'
 
-export function append<T>(element: T): Operator<T, T> {
-  return function(source) {
+export function append<T>(elements: Iterable<T>): Operator<T, T>
+export function append<T>(...elements: T[]): Operator<T, T>
+export function append<T>(elements: Iterable<T>): Operator<T, T> {
+  return function (source) {
     return {
       *[Symbol.iterator]() {
-        for (const item of source) {
-          yield item
+        for (const element of source) {
+          yield element
         }
-  
-        yield element
-      }
+
+        for (const element of elements) {
+          yield element
+        }
+      },
     }
   }
 }
