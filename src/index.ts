@@ -15,6 +15,7 @@ import { groupBy } from './operators/groupBy'
 import { skipLast } from './operators/skipLast'
 import { takeLast } from './operators/takeLast'
 import { reverse } from './operators/reverse'
+import { innerJoin } from './operators/innerJoin'
 
 interface Person {
   name: string
@@ -31,14 +32,14 @@ const people: Person[] = [
 ]
 
 const result = query(
-  from(people),
-  groupBy(person => person.age),
-  reverse()
+  from([16, 11]),
+  innerJoin({
+    other: people,
+    on: (age, person) => person.age === age,
+    into: (age, person) => [age, person.name] as const,
+  })
 )
 
-for (const group of result) {
-  console.log(`Key: ${group.key}`)
-  for (const element of group) {
-    console.log(element.name)
-  }
+for (const [age, name] of result) {
+  console.log(`${age}, ${name}`)
 }

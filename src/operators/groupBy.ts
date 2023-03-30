@@ -24,9 +24,10 @@ export function groupBy<T, K>(
           yield {
             key,
             [Symbol.iterator]() {
-              return where<T>(element =>
-                equalityCheck(keySelector(element), key)
-              )(source)[Symbol.iterator]()
+              return query(
+                from(source),
+                where(element => equalityCheck(keySelector(element), key))
+              )[Symbol.iterator]()
             },
           }
         }
