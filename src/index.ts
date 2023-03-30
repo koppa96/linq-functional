@@ -29,7 +29,8 @@ const people: Person[] = [
 
 const result = query(
   from(people),
-  groupBy(person => person.age)
+  groupBy(person => person.age),
+  skip(2)
 )
 
 for (const group of result) {
