@@ -14,6 +14,7 @@ import { count } from './finishers/count'
 import { groupBy } from './operators/groupBy'
 import { skipLast } from './operators/skipLast'
 import { takeLast } from './operators/takeLast'
+import { reverse } from './operators/reverse'
 
 interface Person {
   name: string
@@ -32,7 +33,7 @@ const people: Person[] = [
 const result = query(
   from(people),
   groupBy(person => person.age),
-  takeLast(10)
+  reverse()
 )
 
 for (const group of result) {
