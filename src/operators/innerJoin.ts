@@ -1,27 +1,16 @@
 import { Operator } from '../types'
 
-export interface InnerJoin<T, O, R> {
-  other: Iterable<O>
+export function innerJoin<T, O>(
+  other: Iterable<O>,
   on: (left: T, right: O) => boolean
-  into?: (left: T, right: O) => R
-}
-
-export function innerJoin<T, O, R = [T, O]>({
-  other,
-  on,
-  into,
-}: InnerJoin<T, O, R>): Operator<T, R> {
+): Operator<T, [T, O]> {
   return function (source) {
     return {
-      *[Symbol.iterator](): Iterator<any> {
+      *[Symbol.iterator]() {
         for (const element of source) {
           for (const otherElement of other) {
             if (on(element, otherElement)) {
-              if (into) {
-                yield into(element, otherElement)
-              } else {
-                yield [element, otherElement]
-              }
+              yield [element, otherElement]
             }
           }
         }
