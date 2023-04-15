@@ -22,7 +22,7 @@ describe('any', () => {
 
   it('is false when no elements match the predicate', () => {
     const operator = any<number>(value => value > 1)
-    const source = [1]
+    const source = [0, 1]
 
     const result = operator(source)
 
@@ -31,7 +31,7 @@ describe('any', () => {
 
   it('is true when one element matches the predicate', () => {
     const operator = any<number>(value => value > 1)
-    const source = [2]
+    const source = [1, 2]
 
     const result = operator(source)
 
