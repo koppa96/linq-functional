@@ -1,10 +1,9 @@
-import { from } from '../starters'
-
 export * from './aggregate'
 export * from './all'
 export * from './any'
 export * from './average'
 export * from './averageOf'
+export * from './contains'
 export * from './count'
 export * from './elementAt'
 export * from './first'
