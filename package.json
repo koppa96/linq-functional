@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node ./dist/index.js",
-    "watch": "tsc --watch",
+    "start": "tsc -p tsconfig-build.json && node ./dist/index.js",
+    "build": "tsc -p tsconfig-build.json",
+    "watch": "tsc -p tsconfig-build.json --watch",
     "test": "vitest",
     "coverage": "vitest run --coverage"
   },

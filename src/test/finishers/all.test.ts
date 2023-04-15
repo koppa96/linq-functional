@@ -1,5 +1,5 @@
 import { assert, describe, it } from 'vitest'
-import { all } from '../../src'
+import { all } from '../../lib'
 
 describe('all', () => {
   it('is true when the iterable is empty', () => {
