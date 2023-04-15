@@ -1,4 +1,4 @@
-import { assert, describe, it } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { all } from '../../lib'
 
 describe('all', () => {
@@ -8,7 +8,7 @@ describe('all', () => {
 
     const result = operator(source)
 
-    assert.isTrue(result)
+    expect(result).toBe(true)
   })
 
   it('is false when an element does not match the predicate', () => {
@@ -17,15 +17,15 @@ describe('all', () => {
 
     const result = operator(source)
 
-    assert.isFalse(result)
+    expect(result).toBe(false)
   })
 
   it('is true when all elements match the predicate', () => {
-    const operator = all<number>(value => value < 1)
+    const operator = all<number>(value => value < 2)
     const source = [0, 1]
 
     const result = operator(source)
 
-    assert.isFalse(result)
+    expect(result).toBe(true)
   })
 })
