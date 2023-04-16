@@ -1,5 +1,16 @@
 import { Finisher } from '../types'
 
+/**
+ * Returns the element at the specified index of the source sequence.
+ * @param index The zero based index of the desired element
+ * @returns A finisher operator configured by the given parameters
+ * @example
+ * const result = query(
+ *   from(["apple", "banana", "lemon"]),
+ *   elementAt(2)
+ * )
+ * console.log(result) // Outputs lemon
+ */
 export function elementAt<T>(index: number): Finisher<T, T> {
   return function (source) {
     if (index < 0) {
