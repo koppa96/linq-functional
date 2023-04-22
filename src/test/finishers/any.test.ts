@@ -1,4 +1,4 @@
-import { assert, describe, it } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { any } from '../../lib'
 
 describe('any', () => {
@@ -8,7 +8,7 @@ describe('any', () => {
 
     const result = operator(source)
 
-    assert.isFalse(result)
+    expect(result).toBe(false)
   })
 
   it('is true when the iterable is not empty', () => {
@@ -17,7 +17,7 @@ describe('any', () => {
 
     const result = operator(source)
 
-    assert.isTrue(result)
+    expect(result).toBe(true)
   })
 
   it('is false when no elements match the predicate', () => {
@@ -26,7 +26,7 @@ describe('any', () => {
 
     const result = operator(source)
 
-    assert.isFalse(result)
+    expect(result).toBe(false)
   })
 
   it('is true when one element matches the predicate', () => {
@@ -35,6 +35,6 @@ describe('any', () => {
 
     const result = operator(source)
 
-    assert.isTrue(result)
+    expect(result).toBe(true)
   })
 })
