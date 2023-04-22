@@ -142,11 +142,15 @@ export function pick(...keys: any[]): Operator<any, any> {
     return {
       *[Symbol.iterator]() {
         for (const element of source) {
-          const result: any = {}
-          for (const key of keys) {
-            result[key] = element[key]
+          if (keys.length === 1) {
+            yield element[keys[0]]
+          } else {
+            const result: any = {}
+            for (const key of keys) {
+              result[key] = element[key]
+            }
+            yield result
           }
-          yield result
         }
       },
     }
