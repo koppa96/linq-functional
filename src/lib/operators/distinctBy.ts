@@ -1,6 +1,7 @@
 import { defaultEqualityCheck, EqualityCheck, Operator } from '../types'
-import { from } from '../starters/from'
-import { any } from '../finishers/any'
+import { from } from '../starters'
+import { any } from '../finishers'
+import { query } from '../query'
 
 export function distinctBy<T, R>(
   selector: (item: T) => R,
@@ -12,8 +13,9 @@ export function distinctBy<T, R>(
         const visitedElements: R[] = []
         for (const element of source) {
           const value = selector(element)
-          const currentElementVisited = any<R>(x => equalityCheck(x, value))(
-            visitedElements
+          const currentElementVisited = query(
+            from(visitedElements),
+            any(item => equalityCheck(value, item))
           )
           if (currentElementVisited) {
             continue
