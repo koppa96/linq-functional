@@ -2,7 +2,6 @@ import { Finisher } from '../types'
 
 /**
  * Iterates the source sequence and returns it as a set.
- * @returns A finisher operator
  * @example
  * const result = query(
  *   from([1, 2, 6, 1, 4, 4]),

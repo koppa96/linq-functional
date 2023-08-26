@@ -4,7 +4,6 @@ import { defaultEqualityCheck, EqualityCheck, Finisher } from '../types'
  * Checks if the given sequence has the same elements as the queried sequence.
  * @param other The other sequence
  * @param equalityCheck An optional function to check if 2 elements are equal
- * @returns A finisher operator configured by the given parameters
  * @example
  * const result = query(
  *   from([1, 2, 3]),

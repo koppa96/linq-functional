@@ -8,7 +8,6 @@ import { singleOrNull } from './singleOrNull'
  * are multiple elements that match the predicate, an error is thrown. The function also
  * throws an error if the sequence is empty or has no matching element.
  * @param predicate A function that will test an element
- * @returns A finisher operator configured by the given parameters
  * @example
  * const result = query(
  *   from([1, 2, 3]),

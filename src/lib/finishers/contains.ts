@@ -8,7 +8,6 @@ import { any } from './any'
  * @param element The element to search for
  * @param equalityCheck An optional function that can be used to define what makes two elements equal.
  * Defaults to the === operator, so by default it checks for referential equality in case of objects and arrays
- * @returns A finisher operator configured by the given parameters
  * @example
  * const result = query(
  *   from([1, 2, 3]),

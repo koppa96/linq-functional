@@ -4,7 +4,6 @@ import { Finisher } from '../types'
  * Iterates the source sequence and returns it as a map, where the keys
  * for each element are selected by the given key selector
  * @param keySelector A function that determines which key to assign for each element in the result map
- * @returns A finisher operator configured by the given parameters
  * @example
  * const people = [
  *   {

@@ -4,7 +4,6 @@ import { Finisher } from '../types'
  * Checks if any element of the source sequence satisfies the given predicate.
  * If there is no predicate given, the operator will simply check if the source sequence is empty.
  * @param predicate A function that will test an element
- * @returns A finisher operator configured by the given parameters
  * @example
  * const result = query(
  *   from([1, 2, 3]),

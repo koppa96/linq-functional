@@ -1,9 +1,15 @@
-import { any } from '../finishers/any'
+import { any } from '../finishers'
 import { query } from '../query'
-import { from } from '../starters/from'
+import { from } from '../starters'
 import { defaultEqualityCheck, EqualityCheck, Operator } from '../types'
 import { distinct } from './distinct'
 
+/**
+ * Removes the elements from the source sequence which are present in the given list of elements.
+ * @param elements The elements to remove from the source sequence
+ * @param equalityCheck An optional function to check if 2 elements are considered equal
+ * @example
+ */
 export function minus<T>(
   elements: Iterable<T>,
   equalityCheck: EqualityCheck<T> = defaultEqualityCheck

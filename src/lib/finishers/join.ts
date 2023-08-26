@@ -6,7 +6,6 @@ import { toArray } from './toArray'
  * where the elements are separated by the given separator.
  * @param separator A string that will be used to separate the elements of the source sequence.
  * If omitted, a comma will be used.
- * @returns A finisher operator configured by the given parameters
  * @example
  * const result = query(
  *   from(['apple', 'banana', 'lemon']),
