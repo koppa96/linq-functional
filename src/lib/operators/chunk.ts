@@ -5,7 +5,6 @@ import { Operator } from '../types'
  * original iterable in evenly sized batches. The last chunk may have fewer
  * elements, if the total length of the source is not divisible by the chunk size.
  * @param size The size of the chunks
- * @return An operator configured by the given parameters
  * @example
  * const result = query(
  *   from([1, 2, 3, 4, 5]),

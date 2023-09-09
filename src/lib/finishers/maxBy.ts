@@ -5,7 +5,6 @@ import { Comparator, defaultComparator, Finisher } from '../types'
  * @param selector A function that will be used to select the value for each item to compare them by
  * @param comparator An optional comparator function that can be used
  * to determine which of 2 selected values of elements is the greater one.
- * @returns A finisher operator configured by the given parameters
  * @example
  * const people = [
  *   {

@@ -3,7 +3,6 @@ import { Finisher } from '../types'
 /**
  * Calculates the average of the values mapped from the source sequence by the given selector.
  * @param selector A function that maps an item to a number that will be used for calculating the average
- * @returns A finisher operator configured by the given parameters
  * @example
  * const people = [
  *   {

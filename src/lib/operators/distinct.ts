@@ -4,7 +4,6 @@ import { distinctBy } from './distinctBy'
 /**
  * Filters out the duplicated elements from the source sequence.
  * @param equalityCheck An optional function to check if 2 elements are considered equal
- * @return An operator configured by the given parameters
  * @example
  * const result = query(
  *   from([1, 2, 1, 3, 3, 5, 2]),

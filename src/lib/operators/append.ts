@@ -4,7 +4,6 @@ import { Operator } from '../types'
  * Creates a new `Iterable` that starts with the elements of the source
  * iterable, and ends with the elements passed as argument.
  * @param elements An iterable containing the elements to append
- * @returns An operator configured by the given parameters
  * @example
  * const result = query(
  *   from([1, 2, 3]),

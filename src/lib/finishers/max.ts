@@ -5,7 +5,6 @@ import { maxBy } from './maxBy'
  * Returns the greatest element of the sequence.
  * @param comparator An optional comparator function that can be used
  * to determine which of 2 elements is the greater one.
- * @returns A finisher operator configured by the given parameters
  * @example
  * const result = query(
  *   from([3, 5, 6, 2]),

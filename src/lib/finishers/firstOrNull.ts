@@ -5,7 +5,6 @@ import { Finisher } from '../types'
  * If no predicate is specified it simply returns the first element of the sequence.
  * If the sequence is empty or has no elements that match the predicate, `null` is returned.
  * @param predicate A function that will test an element
- * @returns A finisher operator configured by the given parameters
  * @example
  * const result = query(
  *   from([1, 2, 3]),

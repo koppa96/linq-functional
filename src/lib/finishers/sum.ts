@@ -3,7 +3,6 @@ import { sumOf } from './sumOf'
 
 /**
  * Calculates the sum of items in a number sequence.
- * @returns A finisher operator
  * @example
  * const result = query(
  *   from([1, 2, 3]),

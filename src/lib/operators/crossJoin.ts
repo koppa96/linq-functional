@@ -4,7 +4,6 @@ import { Operator } from '../types'
  * Produces the cartesian product of the source sequence, and the provided
  * sequence.
  * @param other The sequence to join to the source sequence
- * @return An operator configured by the given parameters
  * @example
  * const result = query(
  *   from(['apple', 'banana']),

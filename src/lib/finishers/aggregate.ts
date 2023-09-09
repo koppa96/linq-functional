@@ -5,7 +5,6 @@ import { Finisher } from '../types'
  * @param seed The initial value of the aggregation
  * @param accumulator A function that receives the partial result and the actual item
  * and computes the next result
- * @returns A finisher operator configured by the given parameters
  * @example
  * const result = query(
  *   from([1, 2, 3]),

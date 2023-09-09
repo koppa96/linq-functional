@@ -4,7 +4,6 @@ import { aggregate } from './aggregate'
 /**
  * Calculates the sum of the values mapped from the source sequence by the given selector.
  * @param selector A function that maps an item to a number that will be used for calculating the sum
- * @returns A finisher operator configured by the given parameters
  * @example
  * const people = [
  *   {
