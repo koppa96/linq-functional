@@ -1,4 +1,5 @@
 import { Operator } from '../types'
+import { isIterable } from '../utils/isIterable'
 
 /**
  * Creates a new `Iterable` that starts with the elements of the source
@@ -55,10 +56,4 @@ export function append<T>(
       },
     }
   }
-}
-
-function isIterable<T>(
-  iterableOrElement: any
-): iterableOrElement is Iterable<T> {
-  return typeof iterableOrElement[Symbol.iterator] === 'function'
 }
