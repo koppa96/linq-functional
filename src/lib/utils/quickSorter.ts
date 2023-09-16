@@ -28,8 +28,14 @@ export class QuickSorter<T, P> {
       }
     }
 
-    this.swap(array, i + 1, end)
-    return i + 1
+    i++
+    if (
+      this.comparator(this.selector(array[end]), this.selector(array[i])) < 0
+    ) {
+      this.swap(array, i, end)
+    }
+
+    return i
   }
 
   private swap(array: T[], i: number, j: number) {

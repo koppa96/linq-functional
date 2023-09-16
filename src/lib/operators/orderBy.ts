@@ -12,7 +12,7 @@ export function orderBy<T, R>(
 
   return function (source) {
     return {
-      *[Symbol.iterator]() {
+      [Symbol.iterator]() {
         const sourceArray = query(from(source), toArray())
         quickSorter.sort(sourceArray)
         return sourceArray[Symbol.iterator]()

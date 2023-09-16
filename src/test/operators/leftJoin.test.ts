@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { empty, from, innerJoin, query, toArray } from '../../lib'
+import { empty, from, innerJoin, leftJoin, query, toArray } from '../../lib'
 
 interface Person {
   id: number
@@ -12,7 +12,7 @@ interface Dog {
   personId: number
 }
 
-describe('innerJoin', () => {
+describe('leftJoin', () => {
   it('should return an empty collection if the source is empty', () => {
     const dogs: Dog[] = [
       {
@@ -24,14 +24,14 @@ describe('innerJoin', () => {
 
     const result = query(
       empty<Person>(),
-      innerJoin(dogs, (person, dog) => person.id === dog.personId),
+      leftJoin(dogs, (person, dog) => person.id === dog.personId),
       toArray()
     )
 
     expect(result).toEqual([])
   })
 
-  it('should return an empty collection if the target sequence is empty', () => {
+  it('should join null if the target is empty', () => {
     const people: Person[] = [
       {
         id: 1,
@@ -41,14 +41,22 @@ describe('innerJoin', () => {
 
     const result = query(
       from(people),
-      innerJoin([] as Dog[], (person, dog) => person.id === dog.personId),
+      leftJoin([] as Dog[], (person, dog) => person.id === dog.personId),
       toArray()
     )
 
-    expect(result).toEqual([])
+    expect(result).toEqual([
+      [
+        {
+          id: 1,
+          name: 'John',
+        },
+        null,
+      ],
+    ])
   })
 
-  it('should return an empty collection if no pairs satisfy the condition', () => {
+  it('should join null to the source if there are no matching pairs', () => {
     const people: Person[] = [
       {
         id: 1,
@@ -66,14 +74,22 @@ describe('innerJoin', () => {
 
     const result = query(
       from(people),
-      innerJoin(dogs, (person, dog) => person.id === dog.personId),
+      leftJoin(dogs, (person, dog) => person.id === dog.personId),
       toArray()
     )
 
-    expect(result).toEqual([])
+    expect(result).toEqual([
+      [
+        {
+          id: 1,
+          name: 'John',
+        },
+        null,
+      ],
+    ])
   })
 
-  it('should return the inner join of the two sequences', () => {
+  it('should join matching elements', () => {
     const people: Person[] = [
       {
         id: 1,
@@ -100,11 +116,18 @@ describe('innerJoin', () => {
 
     const result = query(
       from(people),
-      innerJoin(dogs, (person, dog) => person.id === dog.personId),
+      leftJoin(dogs, (person, dog) => person.id === dog.personId),
       toArray()
     )
 
     expect(result).toEqual([
+      [
+        {
+          id: 1,
+          name: 'John',
+        },
+        null,
+      ],
       [
         {
           id: 2,
