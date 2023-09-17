@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { empty, from, leftJoin, query, toArray } from '../../lib'
+import { empty, from, query, rightJoin, toArray } from '../../lib'
 
 interface Person {
   id: number
@@ -12,26 +12,8 @@ interface Dog {
   personId: number
 }
 
-describe('leftJoin', () => {
-  it('should return an empty collection if the source is empty', () => {
-    const dogs: Dog[] = [
-      {
-        id: 1,
-        name: 'Lola',
-        personId: 1,
-      },
-    ]
-
-    const result = query(
-      empty<Person>(),
-      leftJoin(dogs, (person, dog) => person.id === dog.personId),
-      toArray()
-    )
-
-    expect(result).toEqual([])
-  })
-
-  it('should join null if the target is empty', () => {
+describe('rightJoin', () => {
+  it('should return an empty collection if the target is empty', () => {
     const people: Person[] = [
       {
         id: 1,
@@ -41,22 +23,41 @@ describe('leftJoin', () => {
 
     const result = query(
       from(people),
-      leftJoin([] as Dog[], (person, dog) => person.id === dog.personId),
+      rightJoin([] as Dog[], (person, dog) => person.id === dog.personId),
+      toArray()
+    )
+
+    expect(result).toEqual([])
+  })
+
+  it('should join null if the source is empty', () => {
+    const dogs: Dog[] = [
+      {
+        id: 1,
+        name: 'Lola',
+        personId: 2,
+      },
+    ]
+
+    const result = query(
+      empty<Person>(),
+      rightJoin(dogs, (person, dog) => person.id === dog.personId),
       toArray()
     )
 
     expect(result).toEqual([
       [
+        null,
         {
           id: 1,
-          name: 'John',
+          name: 'Lola',
+          personId: 2,
         },
-        null,
       ],
     ])
   })
 
-  it('should join null to the source if there are no matching pairs', () => {
+  it('should join null to the target if there are no matching pairs', () => {
     const people: Person[] = [
       {
         id: 1,
@@ -74,17 +75,18 @@ describe('leftJoin', () => {
 
     const result = query(
       from(people),
-      leftJoin(dogs, (person, dog) => person.id === dog.personId),
+      rightJoin(dogs, (person, dog) => person.id === dog.personId),
       toArray()
     )
 
     expect(result).toEqual([
       [
+        null,
         {
           id: 1,
-          name: 'John',
+          name: 'Lola',
+          personId: 2,
         },
-        null,
       ],
     ])
   })
@@ -116,18 +118,11 @@ describe('leftJoin', () => {
 
     const result = query(
       from(people),
-      leftJoin(dogs, (person, dog) => person.id === dog.personId),
+      rightJoin(dogs, (person, dog) => person.id === dog.personId),
       toArray()
     )
 
     expect(result).toEqual([
-      [
-        {
-          id: 1,
-          name: 'John',
-        },
-        null,
-      ],
       [
         {
           id: 2,
@@ -137,6 +132,14 @@ describe('leftJoin', () => {
           id: 1,
           name: 'Lola',
           personId: 2,
+        },
+      ],
+      [
+        null,
+        {
+          id: 2,
+          name: 'Luna',
+          personId: 3,
         },
       ],
     ])
