@@ -16,7 +16,7 @@ export function without<T>(
             contains(element, equalityCheck)
           )
 
-          if (existsInOther) {
+          if (!existsInOther) {
             yield element
           }
         }
