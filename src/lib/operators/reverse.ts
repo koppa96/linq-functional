@@ -1,6 +1,6 @@
-import { toArray } from '../finishers/toArray'
+import { toArray } from '../finishers'
 import { query } from '../query'
-import { from } from '../starters/from'
+import { from } from '../starters'
 import { Operator } from '../types'
 
 export function reverse<T>(): Operator<T, T> {
