@@ -12,7 +12,7 @@ next:
 
 [Starter](/api-reference/types.html#starter) is used to create an iterable. A query must start with a starter operator. This page introduces the builtin functions that create starters.
 
-> **_NOTE:_** You can also define custom starters see [Extensibility](./extensibility.html) for more details.
+> **_NOTE:_** You can also define custom starters see [Extensibility](/extensibility.html) for more details.
 
 ## Empty
 
