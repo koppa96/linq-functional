@@ -7,7 +7,7 @@
     "start": "tsc -p tsconfig-build.json && node ./dist/index.js",
     "build": "tsc -p tsconfig-build.json",
     "watch": "tsc -p tsconfig-build.json --watch",
-    "test": "vitest",
+    "test": "vitest run",
     "coverage": "vitest run --coverage"
   },
   "keywords": [],
