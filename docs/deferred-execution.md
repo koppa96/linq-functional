@@ -45,3 +45,5 @@ for (const dog of dogsOfPeopleOver25) {
   console.log(dog)
 } // Outputs: Bella, Daisy, Max
 ```
+
+> **_NOTE:_** Reassigning the `people` variable with a new array will not change the query results, since the original array was passed to the `from` function.

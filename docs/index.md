@@ -18,7 +18,7 @@ features:
   - title: Typesafe
     details: The API was developed in TypeScript, thus has full type definitions available.
   - title: Deferred execution
-    details: The query will be evaluated when its result is iterated over.
+    details: Queries will be evaluated when their result is iterated over.
   - title: Extensible
     details: Can be extended easily by adding new operators.
 ---
