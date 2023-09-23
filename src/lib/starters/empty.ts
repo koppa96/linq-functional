@@ -1,14 +1,16 @@
 import { Starter } from '../types'
 
+const _empty = {
+  *[Symbol.iterator]() {},
+}
+
 /**
- * Creates a function that returns an empty `Iterable`.
+ * Creates a `Starter` that returns an empty `Iterable`.
  * @example
  * const result = query(empty<number>(), toArray()) // []
  */
 export function empty<T>(): Starter<T> {
   return function () {
-    return {
-      *[Symbol.iterator]() {},
-    }
+    return _empty
   }
 }

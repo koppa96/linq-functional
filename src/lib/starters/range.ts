@@ -1,8 +1,7 @@
 import { Starter } from '../types'
 
 /**
- * Creates an `Iterable` that contains number values from start value. Each
- * value is greater than the value before.
+ * Creates a `Starter` that generates sequential number values from start value.
  * @remarks This operator uses deferred execution. The actual operation
  * will be evaluated each time when the query result is iterated over.
  * @param start The starting value of the `Iterable`

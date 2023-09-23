@@ -22,6 +22,10 @@ export default defineConfig({
           { text: 'Extensibility', link: '/extensibility' },
         ],
       },
+      {
+        text: 'API reference',
+        items: [{ text: 'Types', link: '/api-reference/types' }],
+      },
     ],
 
     socialLinks: [

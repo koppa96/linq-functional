@@ -12,7 +12,7 @@ hero:
       link: /getting-started
     - theme: alt
       text: API reference
-      link: /api-examples
+      link: /api-reference/types
 
 features:
   - title: Typesafe

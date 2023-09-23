@@ -1,7 +1,9 @@
 ---
 layout: doc
 prev: false
-next: false
+next:
+  text: Starters
+  link: /api-reference/starters
 ---
 
 # Types

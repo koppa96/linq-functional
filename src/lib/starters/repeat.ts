@@ -1,7 +1,7 @@
 import { Starter } from '../types'
 
 /**
- * Creates an `Iterable` that contains the provided item multiple times.
+ * Creates a `Starter` that generates the provided item multiple times.
  * @remarks This operator uses deferred execution. The actual operation
  * will be evaluated each time when the query result is iterated over.
  * @param element The item to repeat

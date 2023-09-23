@@ -1,7 +1,7 @@
 import { Starter } from '../types'
 
 /**
- * Creates a function that returns the source `Iterable`.
+ * Creates a `Starter` that returns the source `Iterable`.
  * @param source Contains the items to return
  * @example
  * const source = new Set<number>()
