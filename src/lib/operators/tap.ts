@@ -1,5 +1,20 @@
 import { Operator } from '../types'
 
+/**
+ * Executes the provided function for each item of the source `Iterable`.
+ * Great for debugging intermediate results of complex queries.
+ * @param action The function to execute for each item
+ * @example
+ * const result = query(
+ *   from([1, 2, 3]),
+ *   tap((item, index) => console.log({item, index})),
+ *   toArray()
+ * )
+ * // Produces the following console output
+ * // {item: 1, index: 0}
+ * // {item: 2, index: 1}
+ * // {item: 3, index: 2}
+ */
 export function tap<T>(
   action: (element: T, index: number) => void
 ): Operator<T, T> {

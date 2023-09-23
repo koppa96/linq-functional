@@ -2,7 +2,7 @@ import { defaultEqualityCheck, EqualityCheck, Operator } from '../types'
 import { distinct } from './distinct'
 
 /**
- * Calculates the intersection of the source sequence and the target sequence. If
+ * Calculates the set intersection of the source sequence and the target sequence. If
  * an element is present in both of the sequences it will be included in the result.
  * @param elements The elements to compare the source sequence to
  * @param equalityCheck An optional function to check if 2 elements are considered equal
