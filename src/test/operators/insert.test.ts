@@ -4,13 +4,13 @@ import { empty, from, insert, query, toArray } from '../../lib'
 describe('insert', () => {
   it('should throw if the index is negative', () => {
     expect(() => {
-      query(empty<number>(), insert(-1, 1))
+      query(empty<number>(), insert(-1, 1), toArray())
     }).toThrow()
   })
 
   it('should throw if the index is after the last element', () => {
     expect(() => {
-      query(empty<number>(), insert(0, 1))
+      query(empty<number>(), insert(1, 1), toArray())
     }).toThrow()
   })
 
