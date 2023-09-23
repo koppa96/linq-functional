@@ -11,7 +11,7 @@ describe('insert', () => {
   it('should throw if the index is after the last element', () => {
     expect(() => {
       query(empty<number>(), insert(0, 1))
-    })
+    }).toThrow()
   })
 
   it('should insert a single element', () => {
