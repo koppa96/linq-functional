@@ -27,5 +27,9 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/koppa96/linq-functional' },
     ],
+
+    search: {
+      provider: 'local',
+    },
   },
 })
