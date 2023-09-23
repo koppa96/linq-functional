@@ -8,10 +8,10 @@ hero:
   tagline: (And some new operators)
   actions:
     - theme: brand
-      text: Installation
-      link: /markdown-examples
+      text: Getting started
+      link: /getting-started
     - theme: alt
-      text: API Reference
+      text: API reference
       link: /api-examples
 
 features:

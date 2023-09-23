@@ -2,27 +2,30 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Linq Functional",
+  title: 'Linq Functional',
   description: "A functional adaptation of C#'s Linq API.",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Getting started', link: '/getting-started' },
+      { text: 'API reference', link: '/api-reference' },
     ],
 
     sidebar: [
       {
-        text: 'Examples',
+        text: 'Introduction',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
+          { text: 'Getting started', link: '/getting-started' },
+          { text: 'Deferred execution', link: '/deferred-execution' },
+          { text: 'Finishers', link: '/finishers' },
+          { text: 'Extensibility', link: '/extensibility' },
+        ],
+      },
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ]
-  }
+      { icon: 'github', link: 'https://github.com/koppa96/linq-functional' },
+    ],
+  },
 })
