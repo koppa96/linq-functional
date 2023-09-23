@@ -8,7 +8,10 @@
     "build": "tsc -p tsconfig-build.json",
     "watch": "tsc -p tsconfig-build.json --watch",
     "test": "vitest run",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +20,7 @@
     "@vitest/coverage-c8": "^0.33.0",
     "prettier": "^2.8.7",
     "typescript": "^5.0.2",
+    "vitepress": "^1.0.0-rc.15",
     "vitest": "^0.30.1"
   }
 }
