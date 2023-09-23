@@ -3,9 +3,7 @@ layout: doc
 prev:
   text: Finishers
   link: /finishers
-next:
-  text: API reference
-  link: /api-reference
+next: false
 ---
 
 # Extensibility
