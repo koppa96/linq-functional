@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'Linq Functional',
   description: "A functional adaptation of C#'s Linq API.",
+  base: '/linq-functional/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -24,7 +25,10 @@ export default defineConfig({
       },
       {
         text: 'API reference',
-        items: [{ text: 'Types', link: '/api-reference/types' }],
+        items: [
+          { text: 'Types', link: '/api-reference/types' },
+          { text: 'Starters', link: '/api-reference/starters' },
+        ],
       },
     ],
 
