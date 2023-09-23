@@ -2,6 +2,8 @@ import { Operator } from '../types'
 
 /**
  * Omits the last elements of an `Iterable`.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param amount The amount of elements to omit
  * @example
  * const result = query(

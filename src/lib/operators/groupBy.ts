@@ -9,6 +9,8 @@ export type Grouping<K, T> = Iterable<T> & { key: K }
 
 /**
  * Groups the elements of the source sequence by the values selected by the provided selector
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param keySelector A function that selects a group key for each element
  * @param equalityCheck An optional function to check if 2 elements are considered equal
  * @example

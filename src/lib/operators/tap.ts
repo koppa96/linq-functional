@@ -3,6 +3,8 @@ import { Operator } from '../types'
 /**
  * Executes the provided function for each item of the source `Iterable`.
  * Great for debugging intermediate results of complex queries.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param action The function to execute for each item
  * @example
  * const result = query(

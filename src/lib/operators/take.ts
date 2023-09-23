@@ -5,6 +5,8 @@ import { takeWhile } from './takeWhile'
 
 /**
  * Includes the first elements of an `Iterable`.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param amount The amount of elements to include in the result
  * @example
  * const result = query(

@@ -4,6 +4,8 @@ import { isIterable } from '../utils/isIterable'
 /**
  * Creates a new `Iterable` that starts with the elements of the source
  * iterable, and ends with the elements passed as argument.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param elements An iterable containing the elements to append
  * @example
  * const result = query(

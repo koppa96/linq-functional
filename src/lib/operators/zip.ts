@@ -4,6 +4,8 @@ import { Operator } from '../types'
  * Merges the source and the provided `Iterable` into a single `Iterable`. If
  * the source and the provided `Iterable` have different length, the result
  * will have the length of the shorter one.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param other Contains the items to merge with the source.
  * @example
  * const result = query(

@@ -3,6 +3,8 @@ import { Starter } from '../types'
 /**
  * Creates an `Iterable` that contains number values from start value. Each
  * value is greater than the value before.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param start The starting value of the `Iterable`
  * @param count The amount of values to generate
  * @example

@@ -2,6 +2,8 @@ import { Operator } from '../types'
 
 /**
  * Flattens the `Iterable`s projected by the `collectionSelector` into a single `Iterable`.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param collectionSelector A function that maps each item to an `Iterable`
  * @example
  * const people = [
@@ -22,6 +24,8 @@ export function selectMany<T, R>(
 /**
  * Flattens the `Iterable`s projected by the `collectionSelector` into a single `Iterable`.
  * Applies a second mapping function to the result.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param collectionSelector A function that maps each item to an `Iterable`
  * @param resultSelector A function that maps an element and a flattened element into a new shape
  * @example

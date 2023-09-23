@@ -6,6 +6,8 @@ import { take } from './take'
 
 /**
  * Gets the elements between two indices as an `Iterable`.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param startIndex The index of the first element (inclusive)
  * @param endIndex The index of the last element (exclusive)
  * @example

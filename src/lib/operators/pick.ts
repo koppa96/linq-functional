@@ -2,6 +2,8 @@ import { Operator } from '../types'
 
 /**
  * Picks the value of the specified key from each item.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param key The key to take
  * @example
  * const people = [
@@ -25,6 +27,8 @@ export function pick<T, K extends keyof T>(key: K): Operator<T, T[K]>
 
 /**
  * Picks the values of the specified keys from each item.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param key1 The first key to take
  * @param key2 The second key to take
  * @example
@@ -54,6 +58,8 @@ export function pick<T, K1 extends keyof T, K2 extends keyof Omit<T, K1>>(
 
 /**
  * Picks the values of the specified keys from each item.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param key1 The first key to take
  * @param key2 The second key to take
  * @param key3 The third key to take
@@ -86,6 +92,8 @@ export function pick<
 
 /**
  * Picks the values of the specified keys from each item.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param key1 The first key to take
  * @param key2 The second key to take
  * @param key3 The third key to take
@@ -125,6 +133,8 @@ export function pick<
 
 /**
  * Picks the values of the specified keys from each item.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param key1 The first key to take
  * @param key2 The second key to take
  * @param key3 The third key to take
@@ -167,6 +177,8 @@ export function pick<
 
 /**
  * Picks the values of the specified keys from each item.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param key1 The first key to take
  * @param key2 The second key to take
  * @param key3 The third key to take
@@ -212,6 +224,8 @@ export function pick<
 
 /**
  * Picks the values of the specified keys from each item.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param key1 The first key to take
  * @param key2 The second key to take
  * @param key3 The third key to take
@@ -260,6 +274,8 @@ export function pick<
 
 /**
  * Picks the values of the specified keys from each item.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param key1 The first key to take
  * @param key2 The second key to take
  * @param key3 The third key to take
@@ -311,6 +327,8 @@ export function pick<
 
 /**
  * Picks the values of the specified keys from each item.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param key1 The first key to take
  * @param key2 The second key to take
  * @param key3 The third key to take
@@ -365,6 +383,8 @@ export function pick<
 
 /**
  * Picks the values of the specified keys from each item.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param key1 The first key to take
  * @param key2 The second key to take
  * @param key3 The third key to take
@@ -422,6 +442,8 @@ export function pick<
 
 /**
  * Picks the values of the specified keys from each item.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param keys The keys to take the values of
  * @example
  * const people = [

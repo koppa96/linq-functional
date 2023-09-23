@@ -4,6 +4,8 @@ import { Operator } from '../types'
  * Transforms the source iterable to a new one that has the elements of the
  * original iterable in evenly sized batches. The last chunk may have fewer
  * elements, if the total length of the source is not divisible by the chunk size.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param size The size of the chunks
  * @example
  * const result = query(

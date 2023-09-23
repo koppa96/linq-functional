@@ -5,6 +5,8 @@ import { isIterable } from '../utils/isIterable'
 /**
  * Creates a new `Iterable` that starts with the elements passed as argument,
  * and ends with the elements of the source iterable.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param elements An iterable containing the elements to prepend
  * @example
  * const result = query(
@@ -19,6 +21,8 @@ export function prepend<T>(elements: Iterable<T>): Operator<T, T>
 /**
  * Creates a new `Iterable` that starts with the elements passed as argument,
  * and ends with the elements of the source iterable.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param element The elements to prepend
  * @param rest The rest of the elements to prepend
  * @returns An operator configured by the given parameters

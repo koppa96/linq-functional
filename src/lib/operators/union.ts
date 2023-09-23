@@ -7,6 +7,8 @@ import { append } from './append'
 /**
  * Calculates the set union of the source sequence and the target sequence. If
  * an element is present in either of the sequences it will be included in the result.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param elements The elements to compare the source sequence to
  * @param equalityCheck An optional function to check if 2 elements are considered equal
  * @example

@@ -5,6 +5,8 @@ import { EqualityCheck, Operator, defaultEqualityCheck } from '../types'
 
 /**
  * Omits the provided elements from the source `Iterable`.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param other The elements to omit
  * @param equalityCheck An optional function to check if 2 elements are considered equal
  * @example

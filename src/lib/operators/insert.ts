@@ -3,12 +3,16 @@ import { isIterable } from '../utils/isIterable'
 
 /**
  * Creates a new sequence from the source sequence with the provided elements inserted at the given index.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param index The 0 based index to insert the elements to
  * @param elements The elements to insert at the desired position
  */
 export function insert<T>(index: number, elements: Iterable<T>): Operator<T, T>
 /**
  * Creates a new sequence from the source sequence with the provided elements inserted at the given index.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param index The 0 based index to insert the elements to
  * @param element The element to insert at the desired position
  * @param rest The rest of the elements to insert after the first one

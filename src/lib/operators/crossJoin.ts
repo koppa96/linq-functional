@@ -3,6 +3,8 @@ import { Operator } from '../types'
 /**
  * Produces the cartesian product of the source sequence, and the provided
  * sequence.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param other The sequence to join to the source sequence
  * @example
  * const result = query(

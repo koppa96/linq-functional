@@ -8,6 +8,8 @@ import { select } from './select'
  * Performs an operation like SQL's right join of database tables.
  * If the join condition does not evaluate true for an element of the target sequence,
  * The element will be emitted with a `null` joined to it.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param other The sequence to join with the source sequence
  * @param on A function that receives a pair of elements and decides whether to join them or not.
  * @example

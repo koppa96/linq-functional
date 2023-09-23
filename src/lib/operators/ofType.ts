@@ -2,6 +2,8 @@ import { Operator } from '../types'
 
 /**
  * Applies the provided type guard function to filter and cast the items that satisfy it.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param typeGuard A function that determines the type of the item
  * @example
  * // Assuming that isNumber: (value: any) => value is number

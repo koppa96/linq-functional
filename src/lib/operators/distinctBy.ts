@@ -5,6 +5,8 @@ import { query } from '../query'
 
 /**
  * Filters the elements from the source sequence which are considered duplicate by the provided selector's value.
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param selector A function that will be used to select the value for each item to compare them by
  * @param equalityCheck An optional function to check if 2 elements are considered equal
  * @example

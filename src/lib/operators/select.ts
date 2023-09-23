@@ -2,6 +2,8 @@ import { Operator } from '../types'
 
 /**
  * Projects the elements of the source sequence using the provided function
+ * @remarks This operator uses deferred execution. The actual operation
+ * will be evaluated each time when the query result is iterated over.
  * @param selector A function that transforms an element to the desired shape
  * @example
  * const people = [
