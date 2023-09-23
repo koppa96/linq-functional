@@ -5,21 +5,21 @@ layout: home
 hero:
   name: "Linq Functional"
   text: "A functional adaptation of C#'s Linq API."
-  tagline: My great project tagline
+  tagline: (And some new operators)
   actions:
     - theme: brand
-      text: Markdown Examples
+      text: Installation
       link: /markdown-examples
     - theme: alt
-      text: API Examples
+      text: API Reference
       link: /api-examples
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Typesafe
+    details: The API was developed in TypeScript, thus has full type definitions available.
+  - title: Deferred execution
+    details: The query will be evaluated when its result is iterated over.
+  - title: Extensible
+    details: Can be extended easily by adding new operators.
 ---
 
