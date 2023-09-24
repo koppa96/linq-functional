@@ -5,25 +5,25 @@ import { crossJoin } from './crossJoin'
 import { where } from './where'
 
 /**
- * Performs an operation like SQL's inner join of database tables.
- * Emits a pair of elements if the join condition evaluates to true.
+ * Creates an `Operator` that performs an operation like SQL's inner join of database tables.
+ * Emits a pair of items if the join condition evaluates to true.
  * @remarks This operator uses deferred execution. The actual operation
  * will be evaluated each time when the query result is iterated over.
- * @param other The sequence to join with the source sequence
- * @param on A function that receives a pair of elements and decides whether to join them or not.
+ * @param other The `Iterable` that contains the items to join with the source
+ * @param on A function that receives a pair of items and decides whether to join them or not
  * @example
  * const people = [
  *   {
  *     id: 1,
- *     name: 'John Test'
+ *     name: 'John'
  *   },
  *   {
  *     id: 2,
- *     name: 'Jane Test'
+ *     name: 'Jane'
  *   },
  *   {
  *     id: 3,
- *     name: 'Janet Test'
+ *     name: 'Janet'
  *   }
  * ]
  *

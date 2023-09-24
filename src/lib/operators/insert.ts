@@ -2,29 +2,43 @@ import { Operator } from '../types'
 import { isIterable } from '../utils/isIterable'
 
 /**
- * Creates a new sequence from the source sequence with the provided elements inserted at the given index.
+ * Creates an `Operator` that yields the items from the source up to the specified index,
+ * then yields the provided items, then yields the rest of the source.
+ * Throws an error if the index is out of range.
  * @remarks This operator uses deferred execution. The actual operation
  * will be evaluated each time when the query result is iterated over.
- * @param index The 0 based index to insert the elements to
- * @param elements The elements to insert at the desired position
+ * @param index The 0 based index to insert the items to
+ * @param items The items to insert at the desired position
+ * @example
+ * const result = query(
+ *   from([1, 2, 5]),
+ *   insert(2, [3, 4]),
+ *   toArray()
+ * ) // [1, 2, 3, 4, 5]
  */
-export function insert<T>(index: number, elements: Iterable<T>): Operator<T, T>
+export function insert<T>(index: number, items: Iterable<T>): Operator<T, T>
+
 /**
- * Creates a new sequence from the source sequence with the provided elements inserted at the given index.
+ * Creates an `Operator` that yields the items from the source up to the specified index,
+ * then yields the provided items, then yields the rest of the source.
+ * Throws an error if the index is out of range.
  * @remarks This operator uses deferred execution. The actual operation
  * will be evaluated each time when the query result is iterated over.
- * @param index The 0 based index to insert the elements to
- * @param element The element to insert at the desired position
- * @param rest The rest of the elements to insert after the first one
+ * @param index The 0 based index to insert the items to
+ * @param item The item to insert at the desired position
+ * @param rest The rest of the items to insert after the first one
+ * @example
+ * const result = query(
+ *   from([1, 2, 5]),
+ *   insert(2, 3, 4),
+ *   toArray()
+ * ) // [1, 2, 3, 4, 5]
  */
+export function insert<T>(index: number, item: T, ...rest: T[]): Operator<T, T>
+
 export function insert<T>(
   index: number,
-  element: T,
-  ...rest: T[]
-): Operator<T, T>
-export function insert<T>(
-  index: number,
-  elementOrElements: T | Iterable<T>,
+  itemOrItems: T | Iterable<T>,
   ...rest: T[]
 ): Operator<T, T> {
   return function (source) {
@@ -35,22 +49,22 @@ export function insert<T>(
     return {
       *[Symbol.iterator]() {
         let i = 0
-        for (const element of source) {
+        for (const item of source) {
           if (i === index) {
-            if (isIterable<T>(elementOrElements)) {
-              for (const element of elementOrElements) {
-                yield element
+            if (isIterable<T>(itemOrItems)) {
+              for (const item of itemOrItems) {
+                yield item
               }
             } else {
-              yield elementOrElements
+              yield itemOrItems
             }
 
-            for (const element of rest) {
-              yield element
+            for (const item of rest) {
+              yield item
             }
           }
 
-          yield element
+          yield item
           i++
         }
 

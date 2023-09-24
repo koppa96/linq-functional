@@ -1,26 +1,26 @@
 import { Operator } from '../types'
 
 /**
- * Performs an operation like SQL's left join of database tables.
- * If the join condition does not evaluate true for an element of the source sequence,
- * The element will be emitted with a `null` joined to it.
+ * Creates an `Operator` that performs an operation like SQL's left join of database tables.
+ * If the join condition does not evaluate true for an item of the source sequence,
+ * the item will be emitted with a `null` joined to it.
  * @remarks This operator uses deferred execution. The actual operation
  * will be evaluated each time when the query result is iterated over.
- * @param other The sequence to join with the source sequence
- * @param on A function that receives a pair of elements and decides whether to join them or not.
+ * @param other The `Iterable` that contains the items to join with the source sequence
+ * @param on A function that receives a pair of items and decides whether to join them or not
  * @example
  * const people = [
  *   {
  *     id: 1,
- *     name: 'John Test'
+ *     name: 'John'
  *   },
  *   {
  *     id: 2,
- *     name: 'Jane Test'
+ *     name: 'Jane'
  *   },
  *   {
  *     id: 3,
- *     name: 'Janet Test'
+ *     name: 'Janet'
  *   }
  * ]
  *
@@ -55,17 +55,17 @@ export function leftJoin<T, O>(
   return function (source) {
     return {
       *[Symbol.iterator]() {
-        for (const element of source) {
+        for (const item of source) {
           let matchFound = false
-          for (const otherElement of other) {
-            if (on(element, otherElement)) {
+          for (const otherItem of other) {
+            if (on(item, otherItem)) {
               matchFound = true
-              yield [element, otherElement]
+              yield [item, otherItem]
             }
           }
 
           if (!matchFound) {
-            yield [element, null]
+            yield [item, null]
           }
         }
       },
