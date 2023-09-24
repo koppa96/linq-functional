@@ -74,7 +74,7 @@ false
 
 ## Any
 
-Creates a `Finisher` that checks if any element of the source `Iterable` satisfies the given predicate. If there is no predicate given, the operator will simply check if the source is empty.
+Creates a `Finisher` that checks if any item of the source `Iterable` satisfies the given predicate. If there is no predicate given, the operator will simply check if the source is empty.
 
 ```ts
 function any<T>(predicate?: (item: T) => boolean): Finisher<T, boolean>
@@ -230,4 +230,120 @@ console.log(result)
 
 ```txt
 2
+```
+
+## ElementAt
+
+Creates a `Finisher` that returns the item at the specified index of the source `Iterable`.
+
+```ts
+function elementAt<T>(index: number): Finisher<T, T>
+```
+
+### Arguments
+
+- `index`: `number` - The zero based index of the desired item
+
+### Example
+
+```ts
+const result = query(
+  from(["apple", "banana", "lemon"]),
+  elementAt(2)
+)
+
+console.log(result)
+```
+
+### Output
+
+```txt
+lemon
+```
+
+## First
+
+Creates a `Finisher` that returns the first item that matches the given predicate. If no predicate is specified, it simply returns the first item of the source `Iterable`. Throws an error if there were no matching items in the source.
+
+```ts
+function first<T>(predicate?: (item: T) => boolean): Finisher<T, T>
+```
+
+### Arguments
+
+- `predicate`: `(item: T) => boolean` (optional) - A function that tests an item
+
+### Example
+
+```ts
+const result = query(
+  from(['apple', 'banana', 'lemon']),
+  first()
+)
+
+console.log(result)
+```
+
+### Output
+
+```txt
+apple
+```
+
+## FirstOrNull
+
+Creates a `Finisher` that returns the first item that matches the given predicate. If no predicate is specified, it simply returns the first item of the source `Iterable`. If the source is empty or has no elements that match the predicate, `null` is returned.
+
+```ts
+function firstOrNull<T>(
+  predicate?: (item: T) => boolean
+): Finisher<T, T | null>
+```
+
+### Arguments
+
+- `predicate`: `(item: T) => boolean` (optional) - A function that tests an item
+
+### Example
+
+```ts
+const result = query(
+  from([1, 2, 3]),
+  firstOrNull(value => value > 1)
+)
+```
+
+### Output
+
+```txt
+2
+```
+
+## Join
+
+Creates a `Finisher` that joins the items of the source `Iterable<string>` into a single string, where the items are separated by the given separator.
+
+```ts
+function join(separator?: string): Finisher<string, string>
+```
+
+### Arguments
+
+- `separator`: `string` (optional) - A string that will be used to separate the items of the source. If omitted, a comma will be used.
+
+### Example
+
+```ts
+const result = query(
+  from(['apple', 'banana', 'lemon']),
+  join(', ')
+)
+
+console.log(result)
+```
+
+### Output
+
+```txt
+apple, banana, lemon
 ```
