@@ -4,18 +4,23 @@ import { any } from '../finishers'
 import { query } from '../query'
 
 /**
- * Filters the elements from the source sequence which are considered duplicate by the provided selector's value.
+ * Creates an `Operator` that filters out the items from the source sequence which are considered duplicate by the provided selector's value.
  * @remarks This operator uses deferred execution. The actual operation
  * will be evaluated each time when the query result is iterated over.
  * @param selector A function that will be used to select the value for each item to compare them by
- * @param equalityCheck An optional function to check if 2 elements are considered equal
+ * @param equalityCheck An optional function to check if 2 items are considered equal
  * @example
+ * const source = [
+ *   {id: 1, name: 'John'},
+ *   {id: 2, name: 'Jane'},
+ *   {id: 1, name: 'John'}
+ * ]
+ *
  * const result = query(
- *   from([1, 2, 1, 3, 3, 5, 2]),
- *   distinct(),
+ *   from(source),
+ *   distinctBy(item => item.id),
  *   toArray()
- * )
- * console.log(result) // Outputs [1, 2, 3, 5]
+ * ) // [{id: 1, name: 'John'}, {id: 2, name: 'Jane'}]
  */
 export function distinctBy<T, R>(
   selector: (item: T) => R,
@@ -24,19 +29,19 @@ export function distinctBy<T, R>(
   return function (source) {
     return {
       *[Symbol.iterator]() {
-        const visitedElements: R[] = []
+        const visitedItems: R[] = []
         for (const element of source) {
           const value = selector(element)
-          const currentElementVisited = query(
-            from(visitedElements),
+          const currentItemVisited = query(
+            from(visitedItems),
             any(item => equalityCheck(value, item))
           )
-          if (currentElementVisited) {
+          if (currentItemVisited) {
             continue
           }
 
           yield element
-          visitedElements.push(value)
+          visitedItems.push(value)
         }
       },
     }

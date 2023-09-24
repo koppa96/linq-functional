@@ -18,6 +18,10 @@ next:
 
 Creates a `Starter` that returns an empty `Iterable`. Can be useful if you need an empty `Iterable` with zero memory allocation.
 
+```ts
+function empty<T>(): Starter<T>
+```
+
 ### Example
 
 ```ts
@@ -36,6 +40,10 @@ for (const item of result) {
 ## From
 
 Creates a `Starter` that returns the `Iterable` it receives as an argument. This is the most common query starter, and the main way of transforming the builtin collections into query sources.
+
+```ts
+function from<T>(source: Iterable<T>): Starter<T>
+```
 
 ### Arguments
 
@@ -65,6 +73,10 @@ Creates a `Starter` that generates an `Iterable` that contains a range of sequen
 
 > **_NOTE:_** This operator uses deferred execution. The actual operation will be evaluated each time when the query result is iterated over.
 
+```ts
+function range(start: number, count: number): Starter<number>
+```
+
 ### Arguments
 
 - `start`: `number` - The starting value of the generated `Iterable`
@@ -93,6 +105,10 @@ for (const item of result) {
 Creates a `Starter` that generates an `Iterable` that contains a provided item multiple times. It uses a generator to achieve this, so the actual items are not materialized in a collection.
 
 > **_NOTE:_** This operator uses deferred execution. The actual operation will be evaluated each time when the query result is iterated over.
+
+```ts
+function repeat<T>(item: T, times: number): Starter<T>
+```
 
 ### Arguments
 
