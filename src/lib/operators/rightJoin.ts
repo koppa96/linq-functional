@@ -5,26 +5,26 @@ import { leftJoin } from './leftJoin'
 import { select } from './select'
 
 /**
- * Performs an operation like SQL's right join of database tables.
- * If the join condition does not evaluate true for an element of the target sequence,
- * The element will be emitted with a `null` joined to it.
+ * Creates an `Operator` that performs an operation like SQL's right join of database tables.
+ * If the join condition does not evaluate true for an item of the target `Iterable`,
+ * the item will be emitted with a `null` joined to it.
  * @remarks This operator uses deferred execution. The actual operation
  * will be evaluated each time when the query result is iterated over.
  * @param other The sequence to join with the source sequence
- * @param on A function that receives a pair of elements and decides whether to join them or not.
+ * @param on A function that receives a pair of items and decides whether to join them or not.
  * @example
  * const people = [
  *   {
  *     id: 1,
- *     name: 'John Test'
+ *     name: 'John'
  *   },
  *   {
  *     id: 2,
- *     name: 'Jane Test'
+ *     name: 'Jane'
  *   },
  *   {
  *     id: 3,
- *     name: 'Janet Test'
+ *     name: 'Janet'
  *   }
  * ]
  *
@@ -50,7 +50,7 @@ import { select } from './select'
  *   from(people),
  *   rightJoin(dogs, (person, dog) => person.id === dog.ownerId),
  *   toArray()
- * ) // [[{id: 1, name: 'John Test'}, {id: 1, name: 'Lola', ownerId: 1}], [{id: 2, name: 'Jane Test'}, {id: 2, name: 'Luna', ownerId: 2}], [null, {id: 3, name: 'Max', ownerId: 4}]]
+ * ) // [[{id: 1, name: 'John'}, {id: 1, name: 'Lola', ownerId: 1}], [{id: 2, name: 'Jane'}, {id: 2, name: 'Luna', ownerId: 2}], [null, {id: 3, name: 'Max', ownerId: 4}]]
  */
 export function rightJoin<T, O>(
   other: Iterable<O>,

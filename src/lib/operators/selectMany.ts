@@ -1,14 +1,14 @@
 import { Operator } from '../types'
 
 /**
- * Flattens the `Iterable`s projected by the `collectionSelector` into a single `Iterable`.
+ * Creates an `Operator` that flattens the values projected by the `collectionSelector` into a single `Iterable`.
  * @remarks This operator uses deferred execution. The actual operation
  * will be evaluated each time when the query result is iterated over.
  * @param collectionSelector A function that maps each item to an `Iterable`
  * @example
  * const people = [
- *   {name: 'John', dogs: ['Lola', 'Luna']},
- *   {name: 'Jane', dogs: ['Max']}
+ *   { name: 'John', dogs: ['Lola', 'Luna'] },
+ *   { name: 'Jane', dogs: ['Max'] }
  * ]
  *
  * const allDogs = query(
@@ -22,7 +22,7 @@ export function selectMany<T, R>(
 ): Operator<T, R>
 
 /**
- * Flattens the `Iterable`s projected by the `collectionSelector` into a single `Iterable`.
+ * Creates an `Operator` that flattens the `Iterable`s projected by the `collectionSelector` into a single `Iterable`.
  * Applies a second mapping function to the result.
  * @remarks This operator uses deferred execution. The actual operation
  * will be evaluated each time when the query result is iterated over.
@@ -30,8 +30,8 @@ export function selectMany<T, R>(
  * @param resultSelector A function that maps an element and a flattened element into a new shape
  * @example
  * const people = [
- *   {name: 'John', dogs: ['Lola', 'Luna']},
- *   {name: 'Jane', dogs: ['Max']}
+ *   { name: 'John', dogs: ['Lola', 'Luna'] },
+ *   { name: 'Jane', dogs: ['Max'] }
  * ]
  *
  * const allDogs = query(

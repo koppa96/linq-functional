@@ -2,9 +2,9 @@ import { Comparator, Operator, defaultComparator } from '../types'
 import { orderBy } from './orderBy'
 
 /**
- * Performs a descending ordering by the selected values and the comparator function.
+ * Creates an `Operator` that performs a descending ordering by the selected values and the comparator function.
  * The sorting algorithm is stable, so performing subsequent orderings will
- * keep the order of the items within equality groups
+ * keep the order of the items within equality groups.
  * @remarks This operator uses deferred execution. The actual operation
  * will be evaluated each time when the query result is iterated over.
  * @param selector A function that selects a value for each item

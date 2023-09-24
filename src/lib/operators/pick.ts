@@ -1,19 +1,19 @@
 import { Operator } from '../types'
 
 /**
- * Picks the value of the specified key from each item.
+ * Creates an `Operator` that picks the value of the specified key from each item.
  * @remarks This operator uses deferred execution. The actual operation
  * will be evaluated each time when the query result is iterated over.
- * @param key The key to take
+ * @param key A key of the item of the source
  * @example
  * const people = [
  *   {
  *     id: 1,
- *     name: 'John Test'
+ *     name: 'John'
  *   },
  *   {
  *     id: 2,
- *     name: 'Jane Test'
+ *     name: 'Jane'
  *   },
  * ]
  *
@@ -35,12 +35,12 @@ export function pick<T, K extends keyof T>(key: K): Operator<T, T[K]>
  * const people = [
  *   {
  *     id: 1,
- *     name: 'John Test',
+ *     name: 'John',
  *     someOtherProp: 3
  *   },
  *   {
  *     id: 2,
- *     name: 'Jane Test',
+ *     name: 'Jane',
  *     someOtherProp: 5
  *   },
  * ]
@@ -49,7 +49,7 @@ export function pick<T, K extends keyof T>(key: K): Operator<T, T[K]>
  *   from(people),
  *   pick('id', 'name'),
  *   toArray()
- * ) // [{id: 1, name: 'John Test'}, {id: 2, name: 'Jane Test'}]
+ * ) // [{id: 1, name: 'John'}, {id: 2, name: 'Jane'}]
  */
 export function pick<T, K1 extends keyof T, K2 extends keyof Omit<T, K1>>(
   key1: K1,
@@ -67,12 +67,12 @@ export function pick<T, K1 extends keyof T, K2 extends keyof Omit<T, K1>>(
  * const people = [
  *   {
  *     id: 1,
- *     name: 'John Test',
+ *     name: 'John',
  *     someOtherProp: 3
  *   },
  *   {
  *     id: 2,
- *     name: 'Jane Test',
+ *     name: 'Jane',
  *     someOtherProp: 5
  *   },
  * ]
@@ -81,7 +81,7 @@ export function pick<T, K1 extends keyof T, K2 extends keyof Omit<T, K1>>(
  *   from(people),
  *   pick('id', 'name'),
  *   toArray()
- * ) // [{id: 1, name: 'John Test'}, {id: 2, name: 'Jane Test'}]
+ * ) // [{id: 1, name: 'John'}, {id: 2, name: 'Jane'}]
  */
 export function pick<
   T,
@@ -102,12 +102,12 @@ export function pick<
  * const people = [
  *   {
  *     id: 1,
- *     name: 'John Test',
+ *     name: 'John',
  *     someOtherProp: 3
  *   },
  *   {
  *     id: 2,
- *     name: 'Jane Test',
+ *     name: 'Jane',
  *     someOtherProp: 5
  *   },
  * ]
@@ -116,7 +116,7 @@ export function pick<
  *   from(people),
  *   pick('id', 'name'),
  *   toArray()
- * ) // [{id: 1, name: 'John Test'}, {id: 2, name: 'Jane Test'}]
+ * ) // [{id: 1, name: 'John'}, {id: 2, name: 'Jane'}]
  */
 export function pick<
   T,
@@ -144,12 +144,12 @@ export function pick<
  * const people = [
  *   {
  *     id: 1,
- *     name: 'John Test',
+ *     name: 'John',
  *     someOtherProp: 3
  *   },
  *   {
  *     id: 2,
- *     name: 'Jane Test',
+ *     name: 'Jane',
  *     someOtherProp: 5
  *   },
  * ]
@@ -158,7 +158,7 @@ export function pick<
  *   from(people),
  *   pick('id', 'name'),
  *   toArray()
- * ) // [{id: 1, name: 'John Test'}, {id: 2, name: 'Jane Test'}]
+ * ) // [{id: 1, name: 'John'}, {id: 2, name: 'Jane'}]
  */
 export function pick<
   T,
@@ -189,12 +189,12 @@ export function pick<
  * const people = [
  *   {
  *     id: 1,
- *     name: 'John Test',
+ *     name: 'John',
  *     someOtherProp: 3
  *   },
  *   {
  *     id: 2,
- *     name: 'Jane Test',
+ *     name: 'Jane',
  *     someOtherProp: 5
  *   },
  * ]
@@ -203,7 +203,7 @@ export function pick<
  *   from(people),
  *   pick('id', 'name'),
  *   toArray()
- * ) // [{id: 1, name: 'John Test'}, {id: 2, name: 'Jane Test'}]
+ * ) // [{id: 1, name: 'John'}, {id: 2, name: 'Jane'}]
  */
 export function pick<
   T,
@@ -237,12 +237,12 @@ export function pick<
  * const people = [
  *   {
  *     id: 1,
- *     name: 'John Test',
+ *     name: 'John',
  *     someOtherProp: 3
  *   },
  *   {
  *     id: 2,
- *     name: 'Jane Test',
+ *     name: 'Jane',
  *     someOtherProp: 5
  *   },
  * ]
@@ -251,7 +251,7 @@ export function pick<
  *   from(people),
  *   pick('id', 'name'),
  *   toArray()
- * ) // [{id: 1, name: 'John Test'}, {id: 2, name: 'Jane Test'}]
+ * ) // [{id: 1, name: 'John'}, {id: 2, name: 'Jane'}]
  */
 export function pick<
   T,
@@ -288,12 +288,12 @@ export function pick<
  * const people = [
  *   {
  *     id: 1,
- *     name: 'John Test',
+ *     name: 'John',
  *     someOtherProp: 3
  *   },
  *   {
  *     id: 2,
- *     name: 'Jane Test',
+ *     name: 'Jane',
  *     someOtherProp: 5
  *   },
  * ]
@@ -302,7 +302,7 @@ export function pick<
  *   from(people),
  *   pick('id', 'name'),
  *   toArray()
- * ) // [{id: 1, name: 'John Test'}, {id: 2, name: 'Jane Test'}]
+ * ) // [{id: 1, name: 'John'}, {id: 2, name: 'Jane'}]
  */
 export function pick<
   T,
@@ -342,12 +342,12 @@ export function pick<
  * const people = [
  *   {
  *     id: 1,
- *     name: 'John Test',
+ *     name: 'John',
  *     someOtherProp: 3
  *   },
  *   {
  *     id: 2,
- *     name: 'Jane Test',
+ *     name: 'Jane',
  *     someOtherProp: 5
  *   },
  * ]
@@ -356,7 +356,7 @@ export function pick<
  *   from(people),
  *   pick('id', 'name'),
  *   toArray()
- * ) // [{id: 1, name: 'John Test'}, {id: 2, name: 'Jane Test'}]
+ * ) // [{id: 1, name: 'John'}, {id: 2, name: 'Jane'}]
  */
 export function pick<
   T,
@@ -399,12 +399,12 @@ export function pick<
  * const people = [
  *   {
  *     id: 1,
- *     name: 'John Test',
+ *     name: 'John',
  *     someOtherProp: 3
  *   },
  *   {
  *     id: 2,
- *     name: 'Jane Test',
+ *     name: 'Jane',
  *     someOtherProp: 5
  *   },
  * ]
@@ -413,7 +413,7 @@ export function pick<
  *   from(people),
  *   pick('id', 'name'),
  *   toArray()
- * ) // [{id: 1, name: 'John Test'}, {id: 2, name: 'Jane Test'}]
+ * ) // [{id: 1, name: 'John'}, {id: 2, name: 'Jane'}]
  */
 export function pick<
   T,
@@ -449,12 +449,12 @@ export function pick<
  * const people = [
  *   {
  *     id: 1,
- *     name: 'John Test',
+ *     name: 'John',
  *     someOtherProp: 3
  *   },
  *   {
  *     id: 2,
- *     name: 'Jane Test',
+ *     name: 'Jane',
  *     someOtherProp: 5
  *   },
  * ]
@@ -463,7 +463,7 @@ export function pick<
  *   from(people),
  *   pick('id', 'name'),
  *   toArray()
- * ) // [{id: 1, name: 'John Test'}, {id: 2, name: 'Jane Test'}]
+ * ) // [{id: 1, name: 'John'}, {id: 2, name: 'Jane'}]
  */
 export function pick(...keys: any[]): Operator<any, any> {
   return function (source) {

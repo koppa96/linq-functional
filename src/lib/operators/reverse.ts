@@ -4,7 +4,7 @@ import { from } from '../starters'
 import { Operator } from '../types'
 
 /**
- * Returns a new sequence that contains the items of the source sequence in reverse order.
+ * Creates an `Operator` that returns a new `Iterable` that contains the items of the source in reverse order.
  * @remarks This operator uses deferred execution. The actual operation
  * will be evaluated each time when the query result is iterated over.
  * @example

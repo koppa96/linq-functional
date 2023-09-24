@@ -1,10 +1,11 @@
 import { Operator } from '../types'
 
 /**
- * Omits the last elements of an `Iterable`.
+ * Creates an `Operator` that omits the last items of the source `Iterable`.
+ * If there are not enough items in the source, all items are omitted.
  * @remarks This operator uses deferred execution. The actual operation
  * will be evaluated each time when the query result is iterated over.
- * @param amount The amount of elements to omit
+ * @param amount The amount of items to omit
  * @example
  * const result = query(
  *   from([1, 2, 3, 4]),
