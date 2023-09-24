@@ -25,7 +25,9 @@ function isEven(): Operator<number, number> {
     return { // Create a new object that has a function called Symbol.iterator, so it implements the `Iterable` interface.
       *[Symbol.iterator]() { // Add a star so you can use the yield keyword
         for (const item of source) {
-          yield item
+          if (item % 2 === 0) {
+            yield item
+          }
         }
       }
     }
