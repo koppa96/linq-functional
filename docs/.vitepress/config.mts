@@ -28,6 +28,8 @@ export default defineConfig({
         items: [
           { text: 'Types', link: '/api-reference/types' },
           { text: 'Starters', link: '/api-reference/starters' },
+          { text: 'Operators', link: '/api-reference/operators' },
+          { text: 'Finishers', link: '/api-reference/finishers' },
         ],
       },
     ],
