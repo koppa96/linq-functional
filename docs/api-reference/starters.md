@@ -37,6 +37,10 @@ for (const item of result) {
 
 Creates a `Starter` that returns the `Iterable` it receives as an argument. This is the most common query starter, and the main way of transforming the builtin collections into query sources.
 
+### Arguments
+
+- `source`: `Iterable<T>` - Contains the items to return
+
 ### Example
 
 ```ts
@@ -61,6 +65,11 @@ Creates a `Starter` that generates an `Iterable` that contains a range of sequen
 
 > **_NOTE:_** This operator uses deferred execution. The actual operation will be evaluated each time when the query result is iterated over.
 
+### Arguments
+
+- `start`: `number` - The starting value of the generated `Iterable`
+- `count`: `number` - The length of the generated `Iterable`
+
 ### Example
 
 ```ts
@@ -84,6 +93,11 @@ for (const item of result) {
 Creates a `Starter` that generates an `Iterable` that contains a provided item multiple times. It uses a generator to achieve this, so the actual items are not materialized in a collection.
 
 > **_NOTE:_** This operator uses deferred execution. The actual operation will be evaluated each time when the query result is iterated over.
+
+### Arguments
+
+- `item`: `T` - The item to repeat
+- `times`: `number` - The amount of times to repeat the item
 
 ### Example
 
