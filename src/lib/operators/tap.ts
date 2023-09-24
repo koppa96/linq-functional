@@ -1,7 +1,7 @@
 import { Operator } from '../types'
 
 /**
- * Executes the provided function for each item of the source `Iterable`.
+ * Creates an `Operator` that executes the provided function for each item of the source `Iterable`.
  * Great for debugging intermediate results of complex queries.
  * @remarks This operator uses deferred execution. The actual operation
  * will be evaluated each time when the query result is iterated over.

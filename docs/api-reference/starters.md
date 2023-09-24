@@ -34,7 +34,7 @@ for (const item of result) {
 
 ### Output
 
-```text
+```txt
 ```
 
 ## From
@@ -61,7 +61,7 @@ for (const item of result) {
 
 ### Output
 
-```text
+```txt
 1
 2
 3
@@ -94,7 +94,7 @@ for (const item of result) {
 
 ### Output
 
-```text
+```txt
 10
 11
 12
@@ -127,7 +127,7 @@ for (const item of result) {
 
 ### Output
 
-```text
+```txt
 hello
 hello
 hello

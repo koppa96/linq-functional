@@ -40,7 +40,7 @@ for (const item of result) {
 
 #### Output
 
-```text
+```txt
 1
 2
 3
@@ -70,7 +70,7 @@ for (const item of result) {
 
 #### Output
 
-```text
+```txt
 1
 2
 3
@@ -99,7 +99,7 @@ for (const item of result) {
 
 ### Output
 
-```text
+```txt
 1
 2
 ```
@@ -136,7 +136,7 @@ for (const chunk of chunks) {
 
 ### Output
 
-```text
+```txt
 Chunk start
 1
 2
@@ -175,7 +175,7 @@ for (const item of result) {
 
 ### Output
 
-```text
+```txt
 [1, 'one']
 [1, 'two']
 [1, 'three']
@@ -263,7 +263,7 @@ for (const item of result) {
 
 ### Output
 
-```text
+```txt
 { id: 1, name: 'John' }
 { id: 2, name: 'Jane' }
 ```
@@ -312,7 +312,7 @@ for (const group of groups) {
 
 ### Output
 
-```text
+```txt
 25
 { name: "John Test", age: 25 }
 { name: "Janet Test", age: 25 }
@@ -386,7 +386,7 @@ for (const item of result) {
 
 ### Output
 
-```text
+```txt
 [{id: 1, name: 'John'}, {id: 1, name: 'Lola', ownerId: 1}]
 [{id: 2, name: 'Jane'}, {id: 2, name: 'Luna', ownerId: 2}]
 ```
@@ -423,7 +423,7 @@ for (const item of result) {
 
 #### Output
 
-```text
+```txt
 1
 2
 3
@@ -458,7 +458,7 @@ for (const item of result) {
 
 #### Output
 
-```text
+```txt
 1
 2
 3
@@ -496,7 +496,7 @@ for (const item of result) {
 
 ### Output
 
-```text
+```txt
 2
 4
 ```
@@ -567,7 +567,7 @@ for (const item of result) {
 
 ### Output
 
-```text
+```txt
 [{id: 1, name: 'John'}, {id: 1, name: 'Lola', ownerId: 1}]
 [{id: 2, name: 'Jane'}, {id: 2, name: 'Luna', ownerId: 2}]
 [{id: 3, name: 'Janet'}, null]
@@ -609,7 +609,7 @@ for (const item of result) {
 
 ### Output
 
-```text
+```txt
 2
 4
 ```
@@ -662,7 +662,7 @@ for (const item of result) {
 
 ### Output
 
-```text
+```txt
 { name: 'Jane', age: 32 }
 { name: 'John', age: 39 }
 { name: 'Janet', age: 39 }
@@ -716,7 +716,7 @@ for (const item of result) {
 
 ### Output
 
-```text
+```txt
 { name: 'John', age: 39 }
 { name: 'Janet', age: 39 }
 { name: 'Jane', age: 32 }
@@ -764,7 +764,7 @@ for (const item of result) {
 
 #### Output
 
-```text
+```txt
 John
 Jane
 ```
@@ -813,7 +813,7 @@ for (const item of result) {
 
 #### Output
 
-```text
+```txt
 { id: 1, name: 'John' }
 { id: 2, name: 'Jane' }
 ```
@@ -849,7 +849,7 @@ for (const item of result) {
 
 #### Output
 
-```text
+```txt
 1
 2
 3
@@ -884,7 +884,7 @@ for (const item of result) {
 
 #### Output
 
-```text
+```txt
 1
 2
 3
@@ -918,7 +918,7 @@ for (const item of result) {
 
 ### Output
 
-```text
+```txt
 3
 2
 1
@@ -990,7 +990,7 @@ for (const item of result) {
 
 ### Output
 
-```text
+```txt
 [{id: 1, name: 'John'}, {id: 1, name: 'Lola', ownerId: 1}]
 [{id: 2, name: 'Jane'}, {id: 2, name: 'Luna', ownerId: 2}]
 [null, {id: 3, name: 'Max', ownerId: 4}]
@@ -1042,7 +1042,7 @@ for (const name of names) {
 
 ### Output
 
-```text
+```txt
 John
 Jane
 Janet
@@ -1086,7 +1086,7 @@ for (const dog of allDogs) {
 
 #### Output
 
-```text
+```txt
 Lola
 Luna
 Max
@@ -1128,7 +1128,7 @@ for (const dog of allDogs) {
 
 #### Output
 
-```text
+```txt
 { owner: 'John', dog: 'Lola' }
 { owner: 'John', dog: 'Luna' }
 { owner: 'Jane', dog: 'Max' }
@@ -1163,7 +1163,7 @@ for (const item of result) {
 
 ### Output
 
-```text
+```txt
 3
 4
 ```
@@ -1197,7 +1197,7 @@ for (const item of result) {
 
 ### Output
 
-```text
+```txt
 1
 2
 ```
@@ -1233,7 +1233,7 @@ for (const item of result) {
 
 ### Output
 
-```text
+```txt
 3
 2
 5
@@ -1304,7 +1304,7 @@ for (const item of result) {
 
 ### Output
 
-```text
+```txt
 1
 2
 3
@@ -1339,7 +1339,7 @@ for (const item of result) {
 
 ### Output
 
-```text
+```txt
 3
 4
 ```
@@ -1375,7 +1375,199 @@ for (const item of result) {
 
 ### Output
 
-```text
+```txt
 1
 2
+```
+
+## Tap
+
+Creates an `Operator` that executes the provided function for each item of the source `Iterable`. Great for debugging intermediate results of complex queries.
+
+> **_NOTE:_** This operator uses deferred execution. The actual operation will be evaluated each time when the query result is iterated over.
+
+```ts
+function tap<T>(
+  action: (element: T, index: number) => void
+): Operator<T, T>
+```
+
+### Arguments
+
+- `action`: `(element: T, index: number) => void` - A function that gets executed when an element is yielded
+
+### Example
+
+```ts
+const result = query(
+  from([1, 2, 3]),
+  tap((item, index) => console.log({item, index}))
+)
+
+for (const item of result) {
+  console.log(item)
+}
+```
+
+### Output
+
+```txt
+{ item: 1, index: 0 }
+1
+{ item: 2, index: 1 }
+2
+{ item: 3, index: 2 }
+3
+```
+
+## Union
+
+Creates an `Operator` that calculates the set union of the source sequence and the target sequence. If an item is present in either of the sequences it will be included in the result. The result contains only distinct items.
+
+> **_NOTE:_** This operator uses deferred execution. The actual operation will be evaluated each time when the query result is iterated over.
+
+```ts
+function union<T>(
+  items: Iterable<T>,
+  equalityCheck?: EqualityCheck<T>
+): Operator<T, T>
+```
+
+### Arguments
+
+- `items`: `Iterable<T>` - The items to calculate the union of the source with
+- `equalityCheck`: `EqualityCheck<T>` (optional) - A function that can determine if two items in the union result are considered equal. Defaults to the `===` operator.
+
+### Example
+
+```ts
+const result = query(
+  from([1, 2, 3, 4, 5]),
+  union([2, 4, 6, 8])
+)
+
+for (const item of result) {
+  console.log(item)
+}
+```
+
+### Output
+
+```txt
+1
+2
+3
+4
+5
+6
+8
+```
+
+## Where
+
+Creates an `Operator` that filters the items that satisfy the provided condition.
+
+> **_NOTE:_** This operator uses deferred execution. The actual operation will be evaluated each time when the query result is iterated over.
+
+```ts
+function where<T>(
+  predicate: (element: T, index: number) => boolean
+): Operator<T, T>
+```
+
+### Arguments
+
+- `predicate`: `(element: T, index: number) => boolean` - A function that checks if an item should be included in the result
+
+### Example
+
+```ts
+const result = query(
+  from([1, 2, 3, 4]),
+  where(item => item % 2 === 0)
+)
+
+for (const item of result) {
+  console.log(item)
+}
+```
+
+### Output
+
+```ts
+2
+4
+```
+
+## Without
+
+Creates an `Operator` that omits the provided elements from the source `Iterable`.
+
+> **_NOTE:_** This operator uses deferred execution. The actual operation will be evaluated each time when the query result is iterated over.
+
+```ts
+function without<T>(
+  other: Iterable<T>,
+  equalityCheck?: EqualityCheck<T>
+): Operator<T, T>
+```
+
+### Arguments
+
+- `other`: `Iterable<T>` - An `Iterable` that contains the items to omit from the source
+- `equalityCheck`: `EqualityCheck<T>` (optional) - A function that can determine if an item in the source and an item in the provided `Iterable` are considered equal. Defaults to the `===` operator.
+
+### Example
+
+```ts
+const result = query(
+  from([1, 2, 3, 4, 5]),
+  without([3, 5])
+)
+
+for (const item of result) {
+  console.log(item)
+}
+```
+
+### Output
+
+```txt
+1
+2
+4
+```
+
+## Zip
+
+Creates an `Operator` that merges the source and the provided `Iterable` into a single `Iterable`. If the source and the provided `Iterable` have different length, the result will have the length of the shorter one.
+
+> **_NOTE:_** This operator uses deferred execution. The actual operation will be evaluated each time when the query result is iterated over.
+
+```ts
+function zip<T, O>(other: Iterable<O>): Operator<T, [T, O]>
+```
+
+### Arguments
+
+- `other`: `Iterable<O>` - The `Iterable` to merge the source with
+
+### Example
+
+```ts
+const result = query(
+  from([1, 2, 3]),
+  zip(['one', 'two'])
+)
+
+for (const item of result) {
+  console.log(item)
+}
+```
+
+### Output
+
+```txt
+[1, 'one']
+[2, 'two']
 ```

@@ -4,7 +4,7 @@ import { from } from '../starters'
 import { EqualityCheck, Operator, defaultEqualityCheck } from '../types'
 
 /**
- * Omits the provided elements from the source `Iterable`.
+ * Creates an `Operator` that omits the provided elements from the source `Iterable`.
  * @remarks This operator uses deferred execution. The actual operation
  * will be evaluated each time when the query result is iterated over.
  * @param other The elements to omit

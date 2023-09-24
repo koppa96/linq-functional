@@ -1,7 +1,7 @@
 import { Operator } from '../types'
 
 /**
- * Filters the items that satisfy the provided condition.
+ * Creates an `Operator` that filters the items that satisfy the provided condition.
  * @remarks This operator uses deferred execution. The actual operation
  * will be evaluated each time when the query result is iterated over.
  * @param predicate A function that checks if an item should be included in the result
