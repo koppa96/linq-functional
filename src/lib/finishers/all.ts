@@ -1,19 +1,18 @@
 import { Finisher } from '../types'
 
 /**
- * Checks whether all elements of the sequence satisfy the given predicate.
- * @param predicate A function that will test an element
+ * Creates a `Finisher` that checks whether all items of the source `Iterable` satisfy the given predicate.
+ * @param predicate A function that tests an item
  * @example
  * const result = query(
  *   from([1, 2, 3]),
  *   all(item => item < 2)
- * )
- * console.log(result) // Outputs false
+ * ) // false
  */
 export function all<T>(predicate: (item: T) => boolean): Finisher<T, boolean> {
   return function (source) {
-    for (const element of source) {
-      if (!predicate(element)) {
+    for (const item of source) {
+      if (!predicate(item)) {
         return false
       }
     }
