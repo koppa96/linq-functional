@@ -21,7 +21,7 @@ export function contains<T>(
   return function (source) {
     return query(
       from(source),
-      any(item => equalityCheck(item, item))
+      any(sourceItem => equalityCheck(item, sourceItem))
     )
   }
 }
