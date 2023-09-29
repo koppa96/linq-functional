@@ -5,10 +5,10 @@ import { select } from '../operators/select'
 import { min } from './min'
 
 /**
- * Returns the smallest value selected by the given selector.
+ * Creates a `Finisher` that returns the smallest value selected by the given selector.
  * @param selector A function that will be used to select the value for each item
  * @param comparator An optional comparator function that can be used
- * to determine which of 2 selected values of elements is the greater one.
+ * to determine which of 2 selected values of items is the greater one.
  * @example
  * const people = [
  *   {

@@ -1,17 +1,17 @@
 import { Finisher } from '../types'
 
 /**
- * Iterates the source sequence and returns it as a map, where the keys
- * for each element are selected by the given key selector
- * @param keySelector A function that determines which key to assign for each element in the result map
+ * Creates a `Finisher` that collects the items of the source `Iterable` into a map where the keys
+ * for each item are selected by the given key selector.
+ * @param keySelector A function that determines which key to assign for each item in the result map
  * @example
  * const people = [
  *   {
- *     name: "John Test",
+ *     name: "John ",
  *     age: 25
  *   },
  *   {
- *     name: "Jane Test",
+ *     name: "Jane",
  *     age: 20
  *   },
  * ]
@@ -19,26 +19,25 @@ import { Finisher } from '../types'
  * const result = query(
  *   from(people),
  *   toMap(person => person.name)
- * )
- * console.log(result) // Outputs a map with keys "John Test" and "Jane Test" that point to their respectable elements
+ * ) // A map with keys "John" and "Jane" that point to their respectable items
  */
 export function toMap<T, K>(keySelector: (item: T) => K): Finisher<T, Map<K, T>>
 
 /**
- * Iterates the source sequence and returns it as a map, where the keys
- * for each element are selected by the given key selector, and values are selected
+ * Creates a `Finisher` that collects the items of the source `Iterable` into a map where the keys
+ * for each item are selected by the given key selector, and values are selected
  * by the given value selector.
- * @param keySelector A function that determines which key to assign for each element in the result map
- * @param valueSelector A function that determines which value to assign of the key of the element
+ * @param keySelector A function that determines which key to assign for each item in the result map
+ * @param valueSelector A function that determines which value to assign of the key of the item
  * @returns A finisher operator configured by the given parameters
  * @example
  * const people = [
  *   {
- *     name: "John Test",
+ *     name: "John",
  *     age: 25
  *   },
  *   {
- *     name: "Jane Test",
+ *     name: "Jane",
  *     age: 20
  *   },
  * ]
@@ -46,8 +45,7 @@ export function toMap<T, K>(keySelector: (item: T) => K): Finisher<T, Map<K, T>>
  * const result = query(
  *   from(people),
  *   toMap(person => person.name, person => person.age)
- * )
- * console.log(result) // Outputs a map with "John Test" -> 25 and "Jane Test" -> 20 as key-value pairs.
+ * ) // A map with "John" -> 25 and "Jane" -> 20 as key-value pairs.
  */
 export function toMap<T, K, V>(
   keySelector: (item: T) => K,
@@ -60,9 +58,9 @@ export function toMap<T, K>(
 ): Finisher<T, Map<K, unknown>> {
   return function (source) {
     const map = new Map<K, unknown>()
-    for (const element of source) {
-      const key = keySelector(element)
-      const value = valueSelector ? valueSelector(element) : element
+    for (const item of source) {
+      const key = keySelector(item)
+      const value = valueSelector ? valueSelector(item) : item
 
       map.set(key, value)
     }

@@ -5,18 +5,18 @@ import { max } from './max'
 import { from } from '../starters/from'
 
 /**
- * Returns the greatest value selected by the given selector.
+ * Creates a `Finisher` that returns the greatest value selected by the given selector.
  * @param selector A function that will be used to select the value for each item
  * @param comparator An optional comparator function that can be used
- * to determine which of 2 selected values of elements is the greater one.
+ * to determine which of 2 selected values of items is the greater one.
  * @example
  * const people = [
  *   {
- *     name: "John Test",
+ *     name: "John",
  *     age: 25
  *   },
  *   {
- *     name: "Jane Test",
+ *     name: "Jane",
  *     age: 20
  *   },
  * ]
@@ -24,8 +24,7 @@ import { from } from '../starters/from'
  * const result = query(
  *   from(people),
  *   maxOf(person => person.age)
- * )
- * console.log(result) // Outputs 25
+ * ) // 25
  */
 export function maxOf<T, R>(
   selector: (item: T) => R,

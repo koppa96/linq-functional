@@ -1,15 +1,14 @@
 import { defaultEqualityCheck, EqualityCheck, Finisher } from '../types'
 
 /**
- * Checks if the given sequence has the same elements as the queried sequence.
- * @param other The other sequence
- * @param equalityCheck An optional function to check if 2 elements are equal
+ * Creates a `Finisher` that checks if the given `Iterable` has the same items as the source `Iterable`.
+ * @param other The other `Iterable`
+ * @param equalityCheck An optional function to check if 2 items are equal
  * @example
  * const result = query(
  *   from([1, 2, 3]),
  *   sequenceEquals([1, 2, 3])
- * )
- * console.log(result) // Outputs true
+ * ) // true
  */
 export function sequenceEquals<T>(
   other: Iterable<T>,

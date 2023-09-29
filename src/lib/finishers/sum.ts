@@ -2,13 +2,12 @@ import { Finisher } from '../types'
 import { sumOf } from './sumOf'
 
 /**
- * Calculates the sum of items in a number sequence.
+ * Creates a `Finisher` that calculates the sum of items in the source `Iterable<number>`.
  * @example
  * const result = query(
  *   from([1, 2, 3]),
  *   sum()
- * )
- * console.log(result) // Outputs 6
+ * ) // 6
  */
 export function sum(): Finisher<number, number> {
   return sumOf(x => x)

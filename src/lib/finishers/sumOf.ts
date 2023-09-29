@@ -2,16 +2,16 @@ import { Finisher } from '../types'
 import { aggregate } from './aggregate'
 
 /**
- * Calculates the sum of the values mapped from the source sequence by the given selector.
+ * Creates a `Finisher` that calculates the sum of the values mapped from the source sequence by the given selector.
  * @param selector A function that maps an item to a number that will be used for calculating the sum
  * @example
  * const people = [
  *   {
- *     name: "John Test",
+ *     name: "John",
  *     dogs: 2
  *   },
  *   {
- *     name: "Jane Test",
+ *     name: "Jane",
  *     dogs: 1
  *   },
  * ]
@@ -19,8 +19,7 @@ import { aggregate } from './aggregate'
  * const result = query(
  *   from(people),
  *   sumOf(person => person.dogs)
- * )
- * console.log(result) // Outputs 3
+ * ) // 3
  */
 export function sumOf<T>(selector: (item: T) => number): Finisher<T, number> {
   return aggregate(0, (result, item) => result + selector(item))
