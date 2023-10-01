@@ -1,7 +1,7 @@
 {
   "name": "linq-functional",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A functional adaptation of C#'s LINQ, for building type safe, declarative queries.",
   "exports": {
     ".": {
