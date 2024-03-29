@@ -23,9 +23,15 @@ export default [
     input: 'src/index.ts',
     external: id => /node_modules/.test(id),
     plugins: [dts()],
-    output: {
-      file: 'dist/index.d.ts',
-      format: 'es',
-    },
+    output: [
+      {
+        file: 'dist/index.d.ts',
+        format: 'es',
+      },
+      {
+        file: 'dist/index.d.cts',
+        format: 'cjs',
+      },
+    ],
   },
 ]
