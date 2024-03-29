@@ -1,12 +1,18 @@
 {
   "name": "linq-functional",
   "type": "module",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A functional adaptation of C#'s LINQ, for building type safe, declarative queries.",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": {
+        "default": "./dist/index.js",
+        "types": "./dist/index.d.ts"
+      },
+      "require": {
+        "default": "./dist/index.cjs",
+        "types": "./dist/index.d.cts"
+      }
     }
   },
   "types": "./dist/index.d.ts",
